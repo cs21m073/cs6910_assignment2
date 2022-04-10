@@ -1,19 +1,37 @@
                                         ********** Part A ReadMe file*****************
 (NOTE: Run the google colab notebook cell by cell to avoid any kind of errors.)
+
 1. First of all upload the iNaturalist Dataset on the google drive. Make sure that the uploaded files are unzipped.  
+
 2. Importing all the necessary libraries which are used to complete part A.
+
 3. Mount the google drive containing the dataset with the google colab and make sure that the GPU is on otherwise it will take longer time to completed the training of model.
+
 4. Installing the wandb.
+
 5. Configuring the sweep to find the best hyperparameters.
-6. I have function called "createDataset" with one argument i.e augment_data. This function is used for creating the dataset and splitting the train dataset into 90% trainData and 10% testData and I am not using the valData for the training. It is used only for the evaluation of the model after we get the best parameter and this valData I am considering as the unseen data fro the model. The argument augment_data tells the function to whether the data should be augmented or not. IF true the augment the data ELSE not. Then this function atlast return the trainData, testData, valData.This function make sures that the data should be random.
+
+6. I have function called "createDataset" with one argument i.e augment_data. This function is used for creating the dataset and splitting the train dataset into 90% trainData and 10% testData and I am not using the valData for the training. It is used only for the evaluation of the model after we get the best parameter and this valData I am considering as the unseen data fro the model. The argument augment_data tells the function to whether the data should be augmented or not. IF true the augment the data ELSE not. Then this function atlast return the trainData, testData, valData.This function make sures that the data should be random. The argument vaue is coming from sweep.
+
 7. Their is a Class in the code called "ConvolutionClasss" which contains two functions as below:
 	def CNNModel(self, numOfFilters=32, filterMultiplier=1, denseSize=64, imageSize=200, dropout=0.2, batchNorm=False, numClasses=10): This function is used to create the model describe in the problem statement of Part A and then return the model. The true meaning of arguments are the same as the name given.
 	def trainModel(self): This function is for training the model with diffrent configuration given by the sweep.
+	
 8. After getting the best configuration I am training the model once agai nwith this best configuration and saving the best model for future reference.
+
 9. Then I am evaluating the model using valData (unseen data) using the best configuration simply by loading the saved model and passing the valData into the model.
+
 10. After evaluating I am showing 3 images from all 10 class of the dataset along with their true class and predicted class.
+
 11. Their is a function called "filterVisualization" to visualize what is happening in all the filters of first convolution layer and printing them in 8*8 grid as my first convolution layer contains 64 filters which is decided based on the best configuarion we get by sweeping.
+
 12. The last function "gbp" is used to see what will image look like if we use guided relu in place of relu 
+
+
+
+
+
+
 
                                      *************Executing through command line***********
 (NOTE: Make sure the gpu is turned on)

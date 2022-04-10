@@ -1,0 +1,40 @@
+                                                               ********** Part B ReadMe file*****************
+(NOTE: Run the google colab notebook cell by cell to avoid any kind of errors.)
+
+1. First of all upload the iNaturalist Dataset on the google drive. Make sure that the uploaded files are unzipped.  
+
+2. Importing all the necessary libraries which are used to complete part B.
+
+3. Mount the google drive containing the dataset with the google colab and make sure that the GPU is on otherwise it will take longer time to completed the training of model.
+
+4. Installing the wandb.
+
+5. Configuring the sweep to find the best hyperparameters.
+
+6. Function def createDataset(augmentData=False, preTrainedModel = 'InceptionV3'): return the datasets used for training the model. Arguments augmentData is used tell whether to augment the data or not and preTrainedModel is used to tell that which model is used to accordingly choose the image size. Value for both argument are coming from sweep.
+
+7. I have a class in the code called "NeuralNetwork", it conatins two functions as below:
+		 def modelCreation(self, denseSize=128, imageSize=299, dropout=0.4, batchNorm=False, preTrainedModel='InceptionV3'): This function is used to return the model on the basis or argument preTrainedModel and all the necessary changes such as adding dense layer. The argument values are coming from sweep.(The given values as default values and it changes according to sweep)
+		 def trainModel(self): This function is used to train and fine tune the model to represent the dataset based on the configuration given by the sweep.
+		 
+		 
+		 
+		 
+		                                *****************Ecexuting through command line****************
+(NOTE: Make sure the gpu is turned on)
+1. Mount the google drive (containing the dataset) into the google colab.
+2. Upload the "PartB.py" into the google colab. (PartB.py is present in Part B folder) 
+3. Run the below command in the cell:
+	!python3 PartB.py 64 0.4 True ResNet50 0.002 10 True
+	
+	where
+	64 is denseSize
+	0.4 is dropout
+	True is batchNorm
+	ResNet50 is preTrainModel.You can use following preTrainedModel(InceptionV3, InceptionResNetV2, ResNet50, Xception)
+	0.002 is lr (learning rate)
+	10 is epochs
+	True is augment_data
+
+Feel free to change the parameters value as per your choice but make sure that the sequence should not be changed.		                                
+

@@ -1,4 +1,4 @@
-********** Part A ReadMe file*****************
+                                        ********** Part A ReadMe file*****************
 (NOTE: Run the google colab notebook cell by cell to avoid any kind of errors.)
 1. First of all upload the iNaturalist Dataset on the google drive. Make sure that the uploaded files are unzipped.  
 2. Importing all the necessary libraries which are used to complete part A.
@@ -15,7 +15,7 @@
 11. Their is a function called "filterVisualization" to visualize what is happening in all the filters of first convolution layer and printing them in 8*8 grid as my first convolution layer contains 64 filters which is decided based on the best configuarion we get by sweeping.
 12. The last function "gbp" is used to see what will image look like if we use guided relu in place of relu 
 
-*************Executing through command line***********
+                                     *************Executing through command line***********
 (NOTE: Make sure the gpu is turned on)
 1. Mount the google drive (containing the dataset) into the google colab.
 2. Upload the "PartA.py" into the google colab. (PartA.py is present in Part A folder) 

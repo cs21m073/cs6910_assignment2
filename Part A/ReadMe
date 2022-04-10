@@ -14,7 +14,7 @@
 6. I have function called "createDataset" with one argument i.e augment_data. This function is used for creating the dataset and splitting the train dataset into 90% trainData and 10% testData and I am not using the valData for the training. It is used only for the evaluation of the model after we get the best parameter and this valData I am considering as the unseen data fro the model. The argument augment_data tells the function to whether the data should be augmented or not. IF true the augment the data ELSE not. Then this function atlast return the trainData, testData, valData.This function make sures that the data should be random. The argument vaue is coming from sweep.
 
 7. Their is a Class in the code called "ConvolutionClasss" which contains two functions as below:
-	def CNNModel(self, numOfFilters=32, filterMultiplier=1, denseSize=64, imageSize=200, dropout=0.2, batchNorm=False, numClasses=10): This function is used to create the model describe in the problem statement of Part A and then return the model. The true meaning of arguments are the same as the name given.
+	def CNNModel(self, numOfFilters=32, filterMultiplier=1, denseSize=64, imageSize=200, dropout=0.2, batchNorm=False, numClasses=10): This function is used to create the model describe in the problem statement of Part A and then return the model. The true meaning of arguments are the same as the name given.(The given values as default values and it changes according to sweep.Orginal value are coming from sweep)
 	def trainModel(self): This function is for training the model with diffrent configuration given by the sweep.
 	
 8. After getting the best configuration I am training the model once agai nwith this best configuration and saving the best model for future reference.
